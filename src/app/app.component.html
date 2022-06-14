@@ -8,11 +8,29 @@
 </head>
 <body>
   <div class="wrapper">
-    <div class="header"></div>
+    <div class="header">
+      <h1 class="title">Serie de fourier</h1>
+    </div>
     <div class="canvas">
-      <ngx-charts-line-chart>
-
+      <h2 clasS="subtitle"> f(x) = k/2 + &Sigma;<sup>n=&infin;</sup><sub>n=1</sub>[(-4k) * cos((2n-1) &pi; Z)] <hr>(2n-1)^2 &pi;^2</h2>
+      <label class="label">Valor  de K:</label><input type="text" class="kValue" [(ngModel)]="kValue">
+      <ngx-charts-line-chart
+      [scheme]="'aqua'"
+      [gradient]="false"
+      [view]="view"
+      [legend]="true"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxis]="true"
+      [yAxis]="true"
+      [autoScale]="true"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [results]="multi"
+      style="fill: #000000;;">
       </ngx-charts-line-chart>
+      <input type="range" min="1" max="100" [(ngModel)]="range"><label>{{range}}</label>
+      <button type="button" class="calcular" (click)="calcular()">Calcular</button>
     </div>
   </div>  
 </body>
